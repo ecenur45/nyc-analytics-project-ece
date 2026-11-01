@@ -38,19 +38,22 @@ all_dates AS (
 
     UNION DISTINCT
 
-    SELECT DISTINCT CAST(first_permit_date AS DATE) AS full_date
+    SELECT DISTINCT
+        CAST(CAST(first_permit_date AS TIMESTAMP) AS DATE) AS full_date
     FROM stg_dob
     WHERE first_permit_date IS NOT NULL
 
     UNION DISTINCT
 
-    SELECT DISTINCT CAST(approved_date AS DATE) AS full_date
+    SELECT DISTINCT
+        CAST(CAST(approved_date AS TIMESTAMP) AS DATE) AS full_date
     FROM stg_dob
     WHERE approved_date IS NOT NULL
 
     UNION DISTINCT
 
-    SELECT DISTINCT CAST(signoff_date AS DATE) AS full_date
+    SELECT DISTINCT
+        CAST(CAST(signoff_date AS TIMESTAMP) AS DATE) AS full_date
     FROM stg_dob
     WHERE signoff_date IS NOT NULL
 
