@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_311_problem
+    columns:
+      - name: problem_key
+        tests:
+          - unique
+          - not_null
+
+      - name: problem
+        tests:
+          - not_null
+
+  - name: dim_311_status
+    columns:
+      - name: status_key
+        tests:
+          - unique
+          - not_null
+
+      - name: status
+        tests:
+          - unique
+          - not_null
+
+      - name: is_resolved
+        tests:
+          - not_null
