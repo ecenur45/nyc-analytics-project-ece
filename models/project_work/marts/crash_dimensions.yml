@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_crash_time
+    description: "Distinct crash hours and minutes, including an unknown member."
+    columns:
+      - name: time_key
+        tests:
+          - unique
+          - not_null
+
+      - name: time_period
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Morning', 'Afternoon', 'Evening', 'Night', 'Unknown']
+
+  - name: dim_crash_severity
+    description: "Crash severity categories, including an unknown member."
+    columns:
+      - name: severity_key
+        tests:
+          - unique
+          - not_null
+
+      - name: severity_category
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Fatal', 'Injury', 'No Injury', 'Unknown']
