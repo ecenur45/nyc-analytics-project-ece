@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_project_date
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_project_location
+    columns:
+      - name: location_key
+        tests:
+          - unique
+          - not_null
