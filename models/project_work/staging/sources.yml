@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: nyc_project_raw
+    database: ece-cis-baruch
+    schema: cis9440_project_g1_raw_data
+
+    tables:
+      - name: source_311_dot_requests
+        description: "Raw NYC 311 service requests filtered to DOT."
+
+      - name: source_motor_vehicle_collisions
+        description: "Raw NYC motor vehicle collision records."

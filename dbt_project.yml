@@ -42,7 +42,7 @@ models:
     project_work:
       staging:
         +materialized: table
-        +schema: nyc_project_staging
+        +schema: nyc_project_staging_central1
 
       marts:
         +materialized: table
