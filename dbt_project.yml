@@ -1,7 +1,7 @@
 name: 'nyc_analytics'
 version: '1.0.0'
 config-version: 2
-# Some default settings for dbt
+
 profile: 'default'
 
 model-paths: ["models"]
@@ -12,11 +12,11 @@ macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 target-path: "target"
+
 clean-targets:
   - "target"
   - "dbt_packages"
 
-# Set up models, which are basically SQL files, to create tables
 models:
   nyc_analytics:
     +materialized: table
@@ -38,4 +38,13 @@ models:
 
         dot_311:
           +materialized: table
+
+    project_work:
+      staging:
+        +materialized: table
+        +schema: nyc_project_staging
+
+      marts:
+        +materialized: table
+        +schema: nyc_project_warehouse_marts
 
