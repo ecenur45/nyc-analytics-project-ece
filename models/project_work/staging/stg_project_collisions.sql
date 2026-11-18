@@ -1,6 +1,6 @@
 -- Grain: one row per raw collision record
 
-select
+select distinct
     cast(collision_id as int64) as collision_id,
     date(crash_date) as crash_date,
     safe_cast(trim(crash_time) as time) as crash_time,
