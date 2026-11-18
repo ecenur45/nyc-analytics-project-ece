@@ -3,7 +3,7 @@
 select distinct
     cast(collision_id as int64) as collision_id,
     date(crash_date) as crash_date,
-    safe_cast(trim(crash_time) as time) as crash_time,
+    safe.parse_time('%H:%M', trim(crash_time)) as crash_time,
 
     nullif(upper(trim(borough)), '') as borough,
     nullif(trim(zip_code), '') as zip_code,
