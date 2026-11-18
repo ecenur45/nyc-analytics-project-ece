@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: fact_311_request
+    columns:
+      - name: request_key
+        tests:
+          - unique
+          - not_null
+
+      - name: unique_key
+        tests:
+          - unique
+          - not_null
+
+      - name: created_date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_project_date')
+                field: date_key
+
+      - name: closed_date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_project_date')
+                field: date_key
+
+      - name: location_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_project_location')
+                field: location_key
+
+      - name: problem_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_311_problem')
+                field: problem_key
+
+      - name: status_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_311_status')
+                field: status_key
+
+      - name: request_count
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1]
+                quote: false
